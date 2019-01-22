@@ -8,7 +8,7 @@ import javax.swing.event.ChangeListener;
  * Creates window that contains user controls
  *
  * @author Sophia Hübscher
- * @version 2.3
+ * @version 2.4
  */
 public class Window extends JFrame implements ActionListener
 {
@@ -140,7 +140,7 @@ public class Window extends JFrame implements ActionListener
         this.add(showTextPanel, BorderLayout.WEST);
         this.add(display, BorderLayout.CENTER);
 
-        //final setup (by mr. beckwith)
+        this.setResizable(false);
         this.setPreferredSize(new Dimension(WIDTH, HEIGHT));
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.pack();
