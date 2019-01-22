@@ -9,7 +9,7 @@ import javax.swing.*;
  */
 public class Display extends JPanel
 {
-    Font    fontBody, fontHeader, fontLBody, fontTitle;
+    Font    fontLBody;
     Book    book = new Book("aChristmasCarol", 300, 20000);
     String  displayText;
     int     wordCount      = 300;
@@ -32,8 +32,6 @@ public class Display extends JPanel
         this.width = width;
 
         fontLBody  = new Font("SansSerif", Font.ITALIC,  20);
-        fontHeader = new Font("SansSerif", Font.BOLD,    28);
-        fontTitle  = new Font("SansSerif", Font.BOLD,    50);
 
         //setting display size
         setPreferredSize(new Dimension(width, height));
@@ -66,24 +64,6 @@ public class Display extends JPanel
         else if (book.bookName.equals("peterPan"))                  g.setColor(new Color(42,  54,  34));
         else if (book.bookName.equals("inspirationalQuotes"))       g.setColor(new Color(245, 168, 77));
         else if (book.bookName.equals("beeMovie"))                  g.setColor(new Color(232, 161, 63));
-
-        g.fillRect(0, 0, width, height);
-
-        //draws lines
-        g.setColor(Color.WHITE);     //right horizontal bar
-        g.fillRect(0, 110, width, 4);
-        g.setColor(Color.BLACK);     //left vertical bar
-        g.fillRect(0, 0, 4, height);
-
-        //draws text
-        g.setColor(Color.WHITE);
-        g.setFont(fontTitle);
-        g.drawString("TextGenerator", 35, 70);
-        g.setFont(fontHeader);
-        g.drawString(book.bookName, 10, 145);
-
-        g.setFont(fontLBody);
-        g.drawString("words in text   | " + maxWords, 10, 170);
 
         //text to display
         displayText = book.getNewText();
